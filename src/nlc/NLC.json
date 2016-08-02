@@ -1,0 +1,169 @@
+{
+    "name": "IBMcloudContainerManagment",
+    "version": "1.0",
+    "classes": [{
+        "class": "bluemix.container.help",
+        "emittarget": "bluemix.container.help",
+        "texts": [
+            "I want help with containers.",
+            "Can you help me with containers?",
+            "Please help me with containers.",
+            "help containers"
+        ]
+    }, {
+        "class": "bluemix.container.list",
+        "emittarget": "bluemix.container.list",
+        "texts": [
+            "Show my containers",
+            "Show me my containers.",
+            "List containers",
+            "I want to see my bluemix containers",
+            "I’d like to get a list of my containers",
+            "Show me my containers",
+            "What are my containers",
+            "show me my containers",
+            "how many containers do I have?",
+            "containers"
+        ]
+    }, {
+        "class": "bluemix.container.logs",
+        "emittarget": "bluemix.container.logs",
+        "texts": [
+            "logs",
+            "Show me the logs for container",
+            "I want to browse the logs for container",
+            "Check on container"
+        ],
+        "parameters": [{
+            "name": "containername",
+            "type": "entity",
+            "prompt": "OK. What is the name of the container for which you want the logs?"
+        }]
+    }, {
+        "class": "bluemix.container.remove",
+        "emittarget": "bluemix.container.remove",
+        "texts": [
+            "Remove container",
+            "Delete container"
+        ],
+        "parameters": [{
+            "name": "containername",
+            "type": "entity",
+            "prompt": "OK. What is the name of the container you want to remove?"
+        }]
+    }, {
+        "class": "bluemix.container.start",
+        "emittarget": "bluemix.container.start",
+        "texts": [
+            "Start container",
+            "I want to start container.",
+            "I want to start my container",
+            "Can you please start my container?",
+            "kickoff container",
+            "turn on container",
+            "enable container",
+            "fire up container"
+        ],
+        "parameters": [{
+            "name": "containername",
+            "type": "entity",
+            "prompt": "OK. What is the name of the container you want to start?"
+        }]
+    }, {
+        "class": "bluemix.container.status",
+        "emittarget": "bluemix.container.status",
+        "texts": [
+            "Status of container",
+            "I want the status of?",
+            "what's the status of container?",
+            "How’s my container doing?"
+        ],
+        "parameters": [{
+            "name": "containername",
+            "type": "entity",
+            "prompt": "OK. What is the name of the container for which you want the status?"
+        }]
+    }, {
+        "class": "bluemix.container.stop",
+        "emittarget": "bluemix.container.stop",
+        "texts": [
+            "Stop the container",
+            "Stop container",
+            "Kill container",
+            "Kill my container",
+            "terminate container",
+            "shutdown container",
+            "terminate container",
+            "disable container"
+        ],
+        "parameters": [{
+            "name": "containername",
+            "type": "entity",
+            "prompt": "OK. What is the name of the container you want to stop?"
+        }]
+    }, {
+        "class": "bluemix.containergroup.help",
+        "emittarget": "bluemix.containergroup.help",
+        "texts": [
+            "I want help with containergroups.",
+            "Can you help me with containergroups?",
+            "Please help me with containergroups.",
+            "help containergroups"
+        ]
+    }, {
+        "class": "bluemix.containergroup.list",
+        "emittarget": "bluemix.containergroup.list",
+        "texts": [
+            "Show my containergroups",
+            "Show me my containergroups.",
+            "List containergroups",
+            "I want to see my bluemix containergroups",
+            "I’d like to get a list of my containergroups",
+            "Show me my containergroups",
+            "What are my containergroups",
+            "show me my containergroups",
+            "how many containergroups do I have?",
+            "containergroups"
+        ]
+    }, {
+        "class": "bluemix.containergroup.remove",
+        "emittarget": "bluemix.containergroup.remove",
+        "texts": [
+            "Remove containergroup",
+            "Delete containergroup"
+        ],
+        "parameters": [{
+            "name": "containergroupname",
+            "type": "entity",
+            "prompt": "OK. What is the name of the containergroup you want to remove?"
+        }]
+    }, {
+        "class": "bluemix.containergroup.scale",
+        "emittarget": "bluemix.containergroup.scale",
+        "texts": [
+            "Scale containergroup to have instances",
+            "Add another instance to my containergroup.",
+            "Add a new instance to my containergroup",
+            "scale my containergroup",
+            "scale up containergroup",
+            "scale down containergroup",
+            "containergroup needs more power"
+        ],
+        "parameters": [{
+            "name": "containergroupname",
+            "type": "entity",
+            "prompt": "OK. What is the name of the containergroup you want to scale?"
+        }, {
+            "name": "instances",
+            "type": "number",
+            "prompt": "OK. How many instances do you want to scale to?"
+        }]
+    }],
+    "parameter.values": [{
+        "name": "containername",
+        "values": []
+      },{
+        "name": "containergroupname",
+        "values": []
+    }]
+}

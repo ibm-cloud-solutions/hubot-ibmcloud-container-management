@@ -1,0 +1,57 @@
+{
+   "container.get.logs.failure": "Failed to get logs for container *%s*: >%s.",
+   "container.get.logs.in.progress": "Getting logs for container *%s* ...",
+   "container.get.logs.success": "Sent logs for container *%s*.",
+   "container.name.not.found": "You don't have an container by the name *%s*.",
+   "container.remove.failure": "I couldn't delete container *%s*: >%s",
+   "container.remove.in.progress": "Deleting container *%s* in the *%s* space. Change spaces using *space set [space_name]*.",
+   "container.remove.prompt": "Are you sure that you want to remove container *%s*?",
+   "container.remove.success": "Container *%s* has been successfully deleted.",
+   "container.start.failure": "Failed to start container *%s*: >%s",
+   "container.start.in.progress": "Starting container *%s*.",
+   "container.start.success": "Container *%s* has been successfully started.",
+   "container.status.in.progress": "Getting status for container *%s* in the *%s* space. Change spaces using *space set [space_name]*.",
+   "container.stop.prompt": "Are you sure that you want to stop container *%s*?",
+   "container.stop.failure": "Failed to stop container *%s*: >%s",
+   "container.stop.in.progress": "Stopping container *%s*.",
+   "container.stop.success": "Container *%s* successfully stopped.",
+   "containers.not.found": "I couldn't find any containers.",
+
+   "containergroup.list.in.progress": "Getting the list of the container groups.",
+   "containergroup.name.not.found": "You don't have an container group by the name *%s*.",
+   "containergroup.none.found": "I couldn't find any container groups.",
+   "containergroup.remove.failure": "Failed to delete container group *%s*: >%s",
+   "containergroup.remove.in.progress": "Deleting container group *%s* in the *%s* space. Change spaces using *space set [space_name]*.",
+   "containergroup.remove.prompt": "Are you sure that you want to remove container group *%s*?",
+   "containergroup.remove.success": "Container group *%s* has been successfully deleted.",
+   "containergroup.scale.failure": "Failed to scale containergroup *%s*: >%s",
+   "containergroup.scale.in.progress": "Scaling container group *%s* to *%s* instance(s).",
+   "containergroup.scale.success": "Scaled container group *%s* successfully to *%s* instance(s).",
+
+   "conversation.timed.out": "Our conversation timed out.  You can try again later.",
+   "conversation.try.again.or.exit": "That is not one of the choices. Try again, or type *exit*.",
+   "conversation.try.again.yes.no": "That is not one of the choices. Try *yes* or *no*.",
+
+   "cognitive.parse.problem.container.logs": "I'm having problems understanding the name of your container. To display logs use *container logs [container]*",
+   "cognitive.parse.problem.container.start": "I'm having problems understanding the name of your container. To start an container use *container start [container]*",
+   "cognitive.parse.problem.container.status": "I'm having problems understanding the name of your container. To display the status of an container use *container status [container]*",
+   "cognitive.parse.problem.container.stop": "I'm having problems understanding the name of your container. To stop an container use *container stop [container]*",
+   "cognitive.parse.problem.container.remove": "I'm having problems understanding the name of your container. To remove an container use *container remove [container]*",
+
+   "cognitive.parse.problem.containergroup.remove": "I'm having problems understanding the name of your containergroup. To remove a containergroup use *containergroup remove [containergroup]*",
+   "cognitive.parse.problem.containergroup.scale": "I'm having problems understanding the name of your containergroup. To scale a containergroup use *containergroup scale [containergroup] [numInstances]*",
+   "cognitive.parse.problem.containergroup.scale.instances": "I'm having problems understanding the number of desired instances. To scale an containergroup use *containergroup scale [containergroup] [numInstances]*",
+
+   "general.safe.this.time": "Ok, *%s* is safe this time around.",
+
+   "help.container.delete": "Deletes a container in the active space.",
+   "help.container.logs": "Gets recent logs for a container.",
+   "help.container.show": "Lists all of the containers in the active space.",
+   "help.container.start": "Starts the container in the active space.",
+   "help.container.status": "Get status for a container in the active space.",
+   "help.container.stop": "Stops the container in the active space.",
+
+   "help.containergroup.delete": "Deletes a container group in the active space.",
+   "help.containergroup.scale": "Scale the [container_group] to [number] instances.",
+   "help.containergroup.show": "Lists all of the container groups in the active space."
+}
