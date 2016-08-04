@@ -3,35 +3,35 @@
     "version": "1.0",
     "classes": [{
         "class": "bluemix.container.help",
+		"description": "Help with Bluemix containers",
         "emittarget": "bluemix.container.help",
         "texts": [
-            "I want help with containers.",
+            "Help with containers.",
             "Can you help me with containers?",
-            "Please help me with containers.",
             "help containers"
         ]
     }, {
         "class": "bluemix.container.list",
+		"description" : "List Bluemix containers",
         "emittarget": "bluemix.container.list",
         "texts": [
             "Show my containers",
             "Show me my containers.",
             "List containers",
-            "I want to see my bluemix containers",
-            "I’d like to get a list of my containers",
-            "Show me my containers",
+            "See my bluemix containers",
+            "Get a list of my containers",
             "What are my containers",
-            "show me my containers",
             "how many containers do I have?",
             "containers"
         ]
     }, {
         "class": "bluemix.container.logs",
+		"description" : "Show logs for a Bluemix container",
         "emittarget": "bluemix.container.logs",
         "texts": [
             "logs",
             "Show me the logs for container",
-            "I want to browse the logs for container",
+            "Browse the logs for container",
             "Check on container"
         ],
         "parameters": [{
@@ -41,6 +41,7 @@
         }]
     }, {
         "class": "bluemix.container.remove",
+		"description" : "Remove a Bluemix container",
         "emittarget": "bluemix.container.remove",
         "texts": [
             "Remove container",
@@ -53,12 +54,10 @@
         }]
     }, {
         "class": "bluemix.container.start",
+		"description" : "Start a Bluemix container",
         "emittarget": "bluemix.container.start",
         "texts": [
             "Start container",
-            "I want to start container.",
-            "I want to start my container",
-            "Can you please start my container?",
             "kickoff container",
             "turn on container",
             "enable container",
@@ -71,11 +70,11 @@
         }]
     }, {
         "class": "bluemix.container.status",
+		"description" : "Show the status of a Bluemix container",
         "emittarget": "bluemix.container.status",
         "texts": [
             "Status of container",
-            "I want the status of?",
-            "what's the status of container?",
+            "What's the status of container?",
             "How’s my container doing?"
         ],
         "parameters": [{
@@ -85,11 +84,10 @@
         }]
     }, {
         "class": "bluemix.container.stop",
+		"description" : "Stop a Bluemix container",
         "emittarget": "bluemix.container.stop",
         "texts": [
             "Stop the container",
-            "Stop container",
-            "Kill container",
             "Kill my container",
             "terminate container",
             "shutdown container",
@@ -103,30 +101,29 @@
         }]
     }, {
         "class": "bluemix.containergroup.help",
+		"description" : "Help with Bluemix container group",
         "emittarget": "bluemix.containergroup.help",
         "texts": [
-            "I want help with containergroups.",
+            "Help with containergroups.",
             "Can you help me with containergroups?",
-            "Please help me with containergroups.",
             "help containergroups"
         ]
     }, {
         "class": "bluemix.containergroup.list",
+		"description" : "List Bluemix container groups",
         "emittarget": "bluemix.containergroup.list",
         "texts": [
-            "Show my containergroups",
             "Show me my containergroups.",
             "List containergroups",
-            "I want to see my bluemix containergroups",
-            "I’d like to get a list of my containergroups",
-            "Show me my containergroups",
+            "See my bluemix containergroups",
+            "Get a list of my containergroups",
             "What are my containergroups",
-            "show me my containergroups",
             "how many containergroups do I have?",
             "containergroups"
         ]
     }, {
         "class": "bluemix.containergroup.remove",
+		"description" : "Remove a Bluemix container group",
         "emittarget": "bluemix.containergroup.remove",
         "texts": [
             "Remove containergroup",
@@ -139,6 +136,7 @@
         }]
     }, {
         "class": "bluemix.containergroup.scale",
+		"description" : "Scale a Bluemix container group",
         "emittarget": "bluemix.containergroup.scale",
         "texts": [
             "Scale containergroup to have instances",
