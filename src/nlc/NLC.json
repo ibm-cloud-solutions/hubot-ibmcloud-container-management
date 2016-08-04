@@ -3,7 +3,7 @@
     "version": "1.0",
     "classes": [{
         "class": "bluemix.container.help",
-		"description": "Help with Bluemix containers",
+	"description": "Help with Bluemix containers",
         "emittarget": "bluemix.container.help",
         "texts": [
             "Help with containers.",
@@ -12,7 +12,7 @@
         ]
     }, {
         "class": "bluemix.container.list",
-		"description" : "List Bluemix containers",
+	"description" : "List Bluemix containers",
         "emittarget": "bluemix.container.list",
         "texts": [
             "Show my containers",
@@ -26,7 +26,7 @@
         ]
     }, {
         "class": "bluemix.container.logs",
-		"description" : "Show logs for a Bluemix container",
+	"description" : "Show logs for a Bluemix container",
         "emittarget": "bluemix.container.logs",
         "texts": [
             "logs",
@@ -41,7 +41,7 @@
         }]
     }, {
         "class": "bluemix.container.remove",
-		"description" : "Remove a Bluemix container",
+	"description" : "Remove a Bluemix container",
         "emittarget": "bluemix.container.remove",
         "texts": [
             "Remove container",
@@ -54,7 +54,7 @@
         }]
     }, {
         "class": "bluemix.container.start",
-		"description" : "Start a Bluemix container",
+	"description" : "Start a Bluemix container",
         "emittarget": "bluemix.container.start",
         "texts": [
             "Start container",
@@ -70,7 +70,7 @@
         }]
     }, {
         "class": "bluemix.container.status",
-		"description" : "Show the status of a Bluemix container",
+	"description" : "Show the status of a Bluemix container",
         "emittarget": "bluemix.container.status",
         "texts": [
             "Status of container",
@@ -84,7 +84,7 @@
         }]
     }, {
         "class": "bluemix.container.stop",
-		"description" : "Stop a Bluemix container",
+	"description" : "Stop a Bluemix container",
         "emittarget": "bluemix.container.stop",
         "texts": [
             "Stop the container",
@@ -101,7 +101,7 @@
         }]
     }, {
         "class": "bluemix.containergroup.help",
-		"description" : "Help with Bluemix container group",
+	"description" : "Help with Bluemix container group",
         "emittarget": "bluemix.containergroup.help",
         "texts": [
             "Help with containergroups.",
@@ -110,7 +110,7 @@
         ]
     }, {
         "class": "bluemix.containergroup.list",
-		"description" : "List Bluemix container groups",
+	"description" : "List Bluemix container groups",
         "emittarget": "bluemix.containergroup.list",
         "texts": [
             "Show me my containergroups.",
@@ -123,7 +123,7 @@
         ]
     }, {
         "class": "bluemix.containergroup.remove",
-		"description" : "Remove a Bluemix container group",
+	"description" : "Remove a Bluemix container group",
         "emittarget": "bluemix.containergroup.remove",
         "texts": [
             "Remove containergroup",
@@ -136,7 +136,7 @@
         }]
     }, {
         "class": "bluemix.containergroup.scale",
-		"description" : "Scale a Bluemix container group",
+	"description" : "Scale a Bluemix container group",
         "emittarget": "bluemix.containergroup.scale",
         "texts": [
             "Scale containergroup to have instances",
