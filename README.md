@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/ibm-cloud-solutions/hubot-ibmcloud-container-management.svg?branch=master)](https://travis-ci.org/ibm-cloud-solutions/hubot-ibmcloud-container-management)
-[![Coverage Status](https://coveralls.io/repos/github/ibm-cloud-solutions/hubot-ibmcloud-container-management/badge.svg?branch=cleanup)](https://coveralls.io/github/ibm-cloud-solutions/hubot-ibmcloud-container-management?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/ibm-cloud-solutions/hubot-ibmcloud-container-management/badge.svg?branch=master)](https://coveralls.io/github/ibm-cloud-solutions/hubot-ibmcloud-container-management?branch=master)
 [![Dependency Status](https://dependencyci.com/github/ibm-cloud-solutions/hubot-ibmcloud-container-management/badge)](https://dependencyci.com/github/ibm-cloud-solutions/hubot-ibmcloud-container-management)
 [![npm](https://img.shields.io/npm/v/hubot-ibmcloud-container-management.svg?maxAge=2592000)](https://www.npmjs.com/package/hubot-ibmcloud-container-management)
 
