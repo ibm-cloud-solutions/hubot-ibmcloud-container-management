@@ -1,6 +1,6 @@
 {
   "name": "hubot-ibmcloud-container-management",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "hubot for IBM Cloud Container interactions",
   "main": "index.js",
   "repository": {
