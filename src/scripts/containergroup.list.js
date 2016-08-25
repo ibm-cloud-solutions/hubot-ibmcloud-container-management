@@ -121,7 +121,7 @@ module.exports = (robot) => {
 			});
 
 			// update names for NLC
-			nlcconfig.updateGlobalParameterValues('IBMcloudContainerManagment_containername', containergroupNames);
+			nlcconfig.updateGlobalParameterValues('IBMcloudContainerManagment_containergroupname', containergroupNames);
 
 			// Emit as an attachment
 			robot.emit('ibmcloud.formatter', {

@@ -25,6 +25,7 @@ var TAG = path.basename(__filename);
 const cf = require('hubot-cf-convenience');
 const ic = require('../lib/ic');
 const activity = require('hubot-ibmcloud-activity-emitter');
+const entities = require('../lib/container.entities');
 // --------------------------------------------------------------
 // i18n (internationalization)
 // It will read from a peer messages.json file.  Later, these
@@ -46,6 +47,9 @@ const START_RE = /container\s+start\s+(.*)/i;
 const START_ID = 'bluemix.container.start';
 
 module.exports = (robot) => {
+
+	// Register entity handling functions
+	entities.registerEntityFunctions();
 
 	// Natural Language match
 	robot.on(START_ID, (res, parameters) => {

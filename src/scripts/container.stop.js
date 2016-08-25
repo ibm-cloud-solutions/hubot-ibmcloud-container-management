@@ -27,6 +27,7 @@ const cf = require('hubot-cf-convenience');
 const ic = require('../lib/ic');
 const activity = require('hubot-ibmcloud-activity-emitter');
 const utils = require('hubot-ibmcloud-utils').utils;
+const entities = require('../lib/container.entities');
 // --------------------------------------------------------------
 // i18n (internationalization)
 // It will read from a peer messages.json file.  Later, these
@@ -48,6 +49,9 @@ const STOP_RE = /container\s+stop\s+(.*)/i;
 const STOP_ID = 'bluemix.container.stop';
 
 module.exports = (robot) => {
+
+	// Register entity handling functions
+	entities.registerEntityFunctions();
 
 	var switchBoard = new Conversation(robot);
 

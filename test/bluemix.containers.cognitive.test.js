@@ -387,4 +387,29 @@ describe('Interacting with Bluemix containers via natural language', function() 
 		});
 	});
 
+	context('verify entity functions', function() {
+
+		it('should retrieve set of container names', function(done) {
+			const entities = require('../src/lib/container.entities');
+			var res = { message: {text: '', user: {id: 'mimiron'}}, response: room };
+			entities.getContainerNames(room.robot, res, 'containername', {}).then(function(containerNames) {
+				expect(containerNames.length).to.eql(3);
+				done();
+			}).catch(function(error) {
+				done(error);
+			});
+		});
+
+		it('should retrieve set of container group names', function(done) {
+			const entities = require('../src/lib/container.entities');
+			var res = { message: {text: '', user: {id: 'mimiron'}}, response: room };
+			entities.getContainerGroupNames(room.robot, res, 'containergroupname', {}).then(function(containerGroupNames) {
+				expect(containerGroupNames.length).to.eql(1);
+				done();
+			}).catch(function(error) {
+				done(error);
+			});
+		});
+	});
+
 });

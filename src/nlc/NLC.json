@@ -36,8 +36,10 @@
         ],
         "parameters": [{
             "name": "containername",
+            "title": "container name",
             "type": "entity",
-            "prompt": "OK. What is the name of the container for which you want the logs?"
+            "prompt": "OK. What is the name of the container for which you want the logs?",
+            "entityfunction": "funccontainername"
         }]
     }, {
         "class": "bluemix.container.remove",
@@ -49,8 +51,10 @@
         ],
         "parameters": [{
             "name": "containername",
+            "title": "container name",
             "type": "entity",
-            "prompt": "OK. What is the name of the container you want to remove?"
+            "prompt": "OK. What is the name of the container you want to remove?",
+            "entityfunction": "funccontainername"
         }]
     }, {
         "class": "bluemix.container.start",
@@ -65,8 +69,10 @@
         ],
         "parameters": [{
             "name": "containername",
+            "title": "container name",
             "type": "entity",
-            "prompt": "OK. What is the name of the container you want to start?"
+            "prompt": "OK. What is the name of the container you want to start?",
+            "entityfunction": "funccontainername"
         }]
     }, {
         "class": "bluemix.container.status",
@@ -79,8 +85,10 @@
         ],
         "parameters": [{
             "name": "containername",
+            "title": "container name",
             "type": "entity",
-            "prompt": "OK. What is the name of the container for which you want the status?"
+            "prompt": "OK. What is the name of the container for which you want the status?",
+            "entityfunction": "funccontainername"
         }]
     }, {
         "class": "bluemix.container.stop",
@@ -96,8 +104,10 @@
         ],
         "parameters": [{
             "name": "containername",
+            "title": "container name",
             "type": "entity",
-            "prompt": "OK. What is the name of the container you want to stop?"
+            "prompt": "OK. What is the name of the container you want to stop?",
+            "entityfunction": "funccontainername"
         }]
     }, {
         "class": "bluemix.containergroup.help",
@@ -131,8 +141,10 @@
         ],
         "parameters": [{
             "name": "containergroupname",
+            "title": "container group name",
             "type": "entity",
-            "prompt": "OK. What is the name of the containergroup you want to remove?"
+            "prompt": "OK. What is the name of the containergroup you want to remove?",
+            "entityfunction": "funccontainergroupname"
         }]
     }, {
         "class": "bluemix.containergroup.scale",
@@ -149,8 +161,10 @@
         ],
         "parameters": [{
             "name": "containergroupname",
+            "title": "container group name",
             "type": "entity",
-            "prompt": "OK. What is the name of the containergroup you want to scale?"
+            "prompt": "OK. What is the name of the containergroup you want to scale?",
+            "entityfunction": "funccontainergroupname"
         }, {
             "name": "instances",
             "type": "number",

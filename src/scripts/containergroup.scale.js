@@ -25,6 +25,7 @@ var TAG = path.basename(__filename);
 const cf = require('hubot-cf-convenience');
 const activity = require('hubot-ibmcloud-activity-emitter');
 const ic = require('../lib/ic');
+const entities = require('../lib/container.entities');
 // --------------------------------------------------------------
 // i18n (internationalization)
 // It will read from a peer messages.json file.  Later, these
@@ -54,6 +55,9 @@ const SCALE_ID = 'bluemix.containergroup.scale';
 
 // Slack entry point.
 module.exports = (robot) => {
+
+	// Register entity handling functions
+	entities.registerEntityFunctions();
 
 	// Natural Language match
 	robot.on(SCALE_ID, (res, parameters) => {

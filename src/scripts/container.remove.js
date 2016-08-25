@@ -26,6 +26,7 @@ const cf = require('hubot-cf-convenience');
 const ic = require('../lib/ic');
 const utils = require('hubot-ibmcloud-utils').utils;
 const activity = require('hubot-ibmcloud-activity-emitter');
+const entities = require('../lib/container.entities');
 // --------------------------------------------------------------
 // i18n (internationalization)
 // It will read from a peer messages.json file.  Later, these
@@ -80,6 +81,9 @@ function removeDialog(switchBoard, res, robot, name, containerGuid, spaceGuid, s
 }
 // Slack entry point.
 module.exports = (robot) => {
+
+	// Register entity handling functions
+	entities.registerEntityFunctions();
 
 	var switchBoard = new Conversation(robot);
 

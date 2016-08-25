@@ -26,6 +26,7 @@ const cf = require('hubot-cf-convenience');
 const activity = require('hubot-ibmcloud-activity-emitter');
 const ic = require('../lib/ic');
 const palette = require('hubot-ibmcloud-utils').palette;
+const entities = require('../lib/container.entities');
 // --------------------------------------------------------------
 // i18n (internationalization)
 // It will read from a peer messages.json file.  Later, these
@@ -47,6 +48,9 @@ const LOGS_RE = /container\s+logs(\s(for|of))?\s(.*)/i;
 const LOGS_ID = 'bluemix.container.logs';
 
 module.exports = (robot) => {
+
+	// Register entity handling functions
+	entities.registerEntityFunctions();
 
 	// Natural Language match
 	robot.on(LOGS_ID, (res, parameters) => {
