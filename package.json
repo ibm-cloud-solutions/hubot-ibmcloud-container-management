@@ -53,7 +53,7 @@
     "hubot-conversation": "^1.1.1",
     "hubot-ibmcloud-activity-emitter": ">=0.0.3",
     "hubot-ibmcloud-cognitive-lib": "latest",
-    "hubot-ibmcloud-formatter": "latest",
+    "hubot-ibmcloud-formatter": ">=0.0.32",
     "hubot-ibmcloud-utils": "latest",
     "i18n-2": "^0.6.3",
     "lodash": "^4.13.1",
