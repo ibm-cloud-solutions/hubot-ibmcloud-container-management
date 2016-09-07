@@ -19,8 +19,8 @@
   */
 'use strict';
 
-var path = require('path');
-var TAG = path.basename(__filename);
+const path = require('path');
+const TAG = path.basename(__filename);
 
 const cf = require('hubot-cf-convenience');
 const ic = require('../lib/ic');
@@ -69,7 +69,7 @@ module.exports = (robot) => {
 		robot.logger.info(`${TAG}: Listing the container groups...`);
 		let message = i18n.__('containergroup.list.in.progress');
 		robot.emit('ibmcloud.formatter', { response: res, message: message});
-		var resultJson = null;
+		let resultJson = null;
 		const spaceGuid = cf.activeSpace(robot, res).guid;
 		const spaceName = cf.activeSpace(robot, res).name;
 
@@ -85,7 +85,7 @@ module.exports = (robot) => {
 				return Promise.resolve();
 			}
 
-			var promiseArray = resultJson.map((containergroup) => {
+			let promiseArray = resultJson.map((containergroup) => {
 				return containerGroups.getContainerGroup(containergroup.Id, spaceGuid);
 			});
 
@@ -100,7 +100,7 @@ module.exports = (robot) => {
 				containergroupNames.push(containergroup.Name);
 
 				// find details info for given containergroup
-				var cgResult = containerGroupDetailsArray.find((containerGroupDetail) => {
+				let cgResult = containerGroupDetailsArray.find((containerGroupDetail) => {
 					return containergroup.id === containerGroupDetail.id;
 				});
 				const ports = containergroup.Port ? containergroup.Port.toString() : 'none';

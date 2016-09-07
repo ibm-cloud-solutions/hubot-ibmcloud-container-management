@@ -19,8 +19,8 @@
   */
 'use strict';
 
-var path = require('path');
-var TAG = path.basename(__filename);
+const path = require('path');
+const TAG = path.basename(__filename);
 
 const cf = require('hubot-cf-convenience');
 const ic = require('../lib/ic');
@@ -59,7 +59,7 @@ function removeDialog(switchBoard, res, robot, name, spaceGuid, spaceName) {
 		// Remove the containergroup.
 		robot.logger.info(`${TAG}: Asynch call using containerGroups library to remove container group with name ${name}.`);
 		containerGroups.remove(name, spaceGuid).then((result) => {
-			var resultJson = JSON.parse(result);
+			let resultJson = JSON.parse(result);
 			if (resultJson && parseInt(resultJson.rc, 10) > 200 && resultJson.description) {
 				throw resultJson.description;
 			}
@@ -85,7 +85,7 @@ module.exports = (robot) => {
 	// Register entity handling functions
 	entities.registerEntityFunctions();
 
-	var switchBoard = new Conversation(robot);
+	let switchBoard = new Conversation(robot);
 
 	// Natural Language match
 	robot.on(REMOVE_ID, (res, parameters) => {

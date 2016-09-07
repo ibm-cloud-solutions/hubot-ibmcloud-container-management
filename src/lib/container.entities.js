@@ -14,7 +14,7 @@ const NAMESPACE = 'IBMcloudContainerManagment';
 const PARAM_CONTAINERNAME = 'containername';
 const PARAM_CONTAINERGROUPNAME = 'containergroupname';
 
-var functionsRegistered = false;
+let functionsRegistered = false;
 
 
 function buildGlobalName(parameterName) {
@@ -37,7 +37,7 @@ function getContainerNames(robot, res, parameterName, parameters) {
 		const spaceGuid = cf.activeSpace(robot, res).guid;
 		ic.containers.getContainers(spaceGuid).then((result) => {
 			let resultJson = JSON.parse(result);
-			var containerNames = resultJson.map(function(container){
+			let containerNames = resultJson.map(function(container){
 				return container.Name;
 			});
 			nlcconfig.updateGlobalParameterValues(buildGlobalName(PARAM_CONTAINERNAME), containerNames);
@@ -54,7 +54,7 @@ function getContainerGroupNames(robot, res, parameterName, parameters) {
 		const containerGroups = new ic.ContainerGroups();
 		containerGroups.getContainerGroups(spaceGuid).then((result) => {
 			let resultJson = JSON.parse(result);
-			var containerGroupNames = resultJson.map(function(containergroup){
+			let containerGroupNames = resultJson.map(function(containergroup){
 				return containergroup.Name;
 			});
 			nlcconfig.updateGlobalParameterValues(buildGlobalName(PARAM_CONTAINERGROUPNAME), containerGroupNames);

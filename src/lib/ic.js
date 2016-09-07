@@ -51,7 +51,7 @@ class Containers {
 	 */
 	getContainers(spaceGuid) {
 		// GET /containers/json?all=1
-		var options = {
+		let options = {
 			method: 'GET',
 			url: this.endpoint + '/v3/containers/json?all=1',
 			headers: {
@@ -60,7 +60,7 @@ class Containers {
 				Accept: 'application/json'
 			}
 		};
-		var promise = new Promise((resolve, reject) => {
+		let promise = new Promise((resolve, reject) => {
 			request(options, function(error, response, body) {
 				if (error) {
 					reject(body);
@@ -82,7 +82,7 @@ class Containers {
 	 */
 	stop(containerGuid, spaceGuid) {
 		// POST /containers/{containerGuid}/start
-		var options = {
+		let options = {
 			method: 'POST',
 			url: this.endpoint + '/v3/containers/' + containerGuid + '/stop',
 			headers: {
@@ -91,7 +91,7 @@ class Containers {
 				Accept: 'application/json'
 			}
 		};
-		var promise = new Promise((resolve, reject) => {
+		let promise = new Promise((resolve, reject) => {
 			request(options, function(error, response, body) {
 				if (error) {
 					reject(body);
@@ -113,7 +113,7 @@ class Containers {
 	 */
 	start(containerGuid, spaceGuid) {
 		// POST /containers/{containerGuid}/start
-		var options = {
+		let options = {
 			method: 'POST',
 			url: this.endpoint + '/v3/containers/' + containerGuid + '/start',
 			headers: {
@@ -122,7 +122,7 @@ class Containers {
 				Accept: 'application/json'
 			}
 		};
-		var promise = new Promise((resolve, reject) => {
+		let promise = new Promise((resolve, reject) => {
 			request(options, function(error, response, body) {
 				if (error) {
 					reject(body);
@@ -144,7 +144,7 @@ class Containers {
 	 */
 	remove(containerGuid, spaceGuid) {
 		// DELETE /containers/{containerGuid}
-		var options = {
+		let options = {
 			method: 'DELETE',
 			url: this.endpoint + '/v3/containers/' + containerGuid,
 			headers: {
@@ -153,7 +153,7 @@ class Containers {
 				Accept: 'application/json'
 			}
 		};
-		var promise = new Promise((resolve, reject) => {
+		let promise = new Promise((resolve, reject) => {
 			request(options, function(error, response, body) {
 				if (error) {
 					reject(body);
@@ -175,7 +175,7 @@ class Containers {
 	 */
 	logs(containerGuid, spaceGuid) {
 		// GET /containers/{containerGuid}/logs
-		var options = {
+		let options = {
 			method: 'GET',
 			url: this.endpoint + '/v3/containers/' + containerGuid + '/logs',
 			headers: {
@@ -184,7 +184,7 @@ class Containers {
 				Accept: 'application/json'
 			}
 		};
-		var promise = new Promise((resolve, reject) => {
+		let promise = new Promise((resolve, reject) => {
 			request(options, function(error, response, body) {
 				if (error) {
 					reject(body);
@@ -219,7 +219,7 @@ class ContainerGroups {
 	 */
 	getContainerGroups(spaceGuid) {
 		// GET /containers/groups
-		var options = {
+		let options = {
 			method: 'GET',
 			url: this.endpoint + '/v3/containers/groups',
 			headers: {
@@ -228,7 +228,7 @@ class ContainerGroups {
 				Accept: 'application/json'
 			}
 		};
-		var promise = new Promise((resolve, reject) => {
+		let promise = new Promise((resolve, reject) => {
 			request(options, function(error, response, body) {
 				if (error) {
 					reject(body);
@@ -250,7 +250,7 @@ class ContainerGroups {
 	 */
 	getContainerGroup(containerGroupGuid, spaceGuid) {
 		// GET /containers/groups/{containerGroupGuid}
-		var options = {
+		let options = {
 			method: 'GET',
 			url: this.endpoint + '/v3/containers/groups/' + containerGroupGuid,
 			headers: {
@@ -259,7 +259,7 @@ class ContainerGroups {
 				Accept: 'application/json'
 			}
 		};
-		var promise = new Promise((resolve, reject) => {
+		let promise = new Promise((resolve, reject) => {
 			request(options, function(error, response, body) {
 				if (error) {
 					reject(body);
@@ -281,7 +281,7 @@ class ContainerGroups {
 	 */
 	remove(containerGroupGuid, spaceGuid) {
 		// DELETE /containers/{containerGuid}
-		var options = {
+		let options = {
 			method: 'DELETE',
 			url: this.endpoint + '/v3/containers/groups/' + containerGroupGuid,
 			headers: {
@@ -290,7 +290,7 @@ class ContainerGroups {
 				Accept: 'application/json'
 			}
 		};
-		var promise = new Promise((resolve, reject) => {
+		let promise = new Promise((resolve, reject) => {
 			request(options, function(error, response, body) {
 				if (error) {
 					reject(body);
@@ -313,12 +313,12 @@ class ContainerGroups {
 	 */
 	scale(scale, containerGroupGuid, spaceGuid) {
 		// PATCH /containers/groups/{containerGroupGuid}
-		var scaleBody = {
+		let scaleBody = {
 			NumberInstances: {
 				Desired: scale
 			}
 		};
-		var options = {
+		let options = {
 			method: 'PATCH',
 			url: this.endpoint + '/v3/containers/groups/' + containerGroupGuid,
 			headers: {
@@ -329,7 +329,7 @@ class ContainerGroups {
 			json: true,
 			body: scaleBody
 		};
-		var promise = new Promise((resolve, reject) => {
+		let promise = new Promise((resolve, reject) => {
 			request(options, function(error, response, body) {
 				if (error) {
 					reject(body);
@@ -352,7 +352,7 @@ module.exports = {
 
 // Container cache
 const containers = new Containers();
-var containerCache = {};
+let containerCache = {};
 
 /**
  * Get the Container cache that maps name to guid
@@ -394,7 +394,7 @@ function setCache(spaceGuid, resultJson, isRefresh, doLogging) {
 function refreshCache() {
 	if (containers && cf && cf.guids && cf.guids.space){
 		containers.getContainers(cf.guids.space).then((result) => {
-			var resultJson = JSON.parse(result);
+			let resultJson = JSON.parse(result);
 			setCache(cf.guids.space, resultJson, true);
 		}).catch((reason) => {
 			console.error('Error: ' + reason);

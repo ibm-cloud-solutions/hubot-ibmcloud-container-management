@@ -19,8 +19,8 @@
   */
 'use strict';
 
-var path = require('path');
-var TAG = path.basename(__filename);
+const path = require('path');
+const TAG = path.basename(__filename);
 
 const cf = require('hubot-cf-convenience');
 const ic = require('../lib/ic');
@@ -75,7 +75,7 @@ module.exports = (robot) => {
 
 	function processStatus(robot, res, name) {
 		robot.logger.debug(`${TAG}: ${STATUS_ID} res.message.text=${res.message.text}.`);
-		var resultJson = null;
+		let resultJson = null;
 		const spaceGuid = cf.activeSpace(robot, res).guid;
 		const spaceName = cf.activeSpace(robot, res).name;
 		robot.logger.info(`${TAG}: Checking the status of container ${name}`);
