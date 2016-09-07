@@ -19,8 +19,8 @@
   */
 'use strict';
 
-var path = require('path');
-var TAG = path.basename(__filename);
+const path = require('path');
+const TAG = path.basename(__filename);
 
 const cf = require('hubot-cf-convenience');
 const ic = require('../lib/ic');
@@ -85,7 +85,7 @@ module.exports = (robot) => {
 	// Register entity handling functions
 	entities.registerEntityFunctions();
 
-	var switchBoard = new Conversation(robot);
+	let switchBoard = new Conversation(robot);
 
 	// Natural Language match
 	robot.on(REMOVE_ID, (res, parameters) => {
@@ -111,7 +111,7 @@ module.exports = (robot) => {
 		robot.logger.debug(`${TAG}: bluemix.container.remove res.message.text=${res.message.text}.`);
 		const spaceGuid = cf.activeSpace(robot, res).guid;
 		const spaceName = cf.activeSpace(robot, res).name;
-		var cache = ic.getCache(spaceGuid);
+		let cache = ic.getCache(spaceGuid);
 
 		robot.logger.info(`${TAG}: Destroying container ${name}`);
 
@@ -121,7 +121,7 @@ module.exports = (robot) => {
 		else {
 			robot.logger.info(`${TAG}: Asynch call using containers library to get containers for space guid ${spaceGuid}.`);
 			ic.containers.getContainers(spaceGuid).then((result) => {
-				var resultJson = JSON.parse(result);
+				let resultJson = JSON.parse(result);
 				ic.setCache(spaceGuid, resultJson, false);
 				cache = ic.getCache(spaceGuid);
 				if (cache && cache[name]) {

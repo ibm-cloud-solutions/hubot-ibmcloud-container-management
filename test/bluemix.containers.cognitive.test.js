@@ -68,7 +68,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 
-			var res = { message: {text: 'I want help with containers'}, response: room };
+			let res = { message: {text: 'I want help with containers'}, response: room };
 			room.robot.emit('bluemix.container.help', res, {});
 
 		});
@@ -87,7 +87,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 
-			var res = { message: {text: 'I want to list my containers'}, user: {id: 'mimiron'}, response: room };
+			let res = { message: {text: 'I want to list my containers'}, user: {id: 'mimiron'}, response: room };
 			room.robot.emit('bluemix.container.list', res, {});
 
 		});
@@ -101,7 +101,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'Show me the logs for container testContainer1', user: {id: 'mimiron'}, response: room }};
+			let res = { message: {text: 'Show me the logs for container testContainer1', user: {id: 'mimiron'}, response: room }};
 			room.robot.emit('bluemix.container.logs', res, { containername: 'testContainer1' });
 		});
 
@@ -112,7 +112,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'Show me the logs', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'Show me the logs', user: {id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.container.logs', res, {});
 		});
 	});
@@ -132,7 +132,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 			});
 
 			// 2. Handle the dialog questions.
-			var replyFn = function(msg){
+			let replyFn = function(msg){
 				// 3. Sends a message to the room with the response to dialog requesting container name.
 				if (msg === 'Are you sure that you want to remove container *testContainer1*?') {
 					room.user.say('mimiron', 'yes');
@@ -144,7 +144,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 			};
 
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'I want to remove container testContainer1', user: {id: 'mimiron'}}, response: room, reply: replyFn };
+			let res = { message: {text: 'I want to remove container testContainer1', user: {id: 'mimiron'}}, response: room, reply: replyFn };
 			room.robot.emit('bluemix.container.remove', res, { containername: 'testContainer1' });
 		});
 
@@ -155,7 +155,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'I want to remove container', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'I want to remove container', user: {id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.container.remove', res, {});
 		});
 	});
@@ -169,7 +169,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 
-			var res = { message: {text: 'I want to start container testContainer1'}, response: room };
+			let res = { message: {text: 'I want to start container testContainer1'}, response: room };
 			room.robot.emit('bluemix.container.start', res, { containername: 'testContainer1' });
 		});
 
@@ -182,7 +182,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 
-			var res = { message: {text: 'I want to start container testContainer4Name'}, response: room };
+			let res = { message: {text: 'I want to start container testContainer4Name'}, response: room };
 			room.robot.emit('bluemix.container.start', res, { containername: 'testContainer4Name' });
 		});
 
@@ -193,7 +193,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'I want to start container', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'I want to start container', user: {id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.container.start', res, {});
 		});
 	});
@@ -215,7 +215,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 			});
 
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'What is the status of container testContainer1?', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'What is the status of container testContainer1?', user: {id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.container.status', res, { containername: 'testContainer1' });
 
 		});
@@ -227,7 +227,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'What is the status of container', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'What is the status of container', user: {id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.container.status', res, {});
 		});
 	});
@@ -242,7 +242,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 			});
 
 			// 2. Handle the dialog question.
-			var replyFn = function(msg){
+			let replyFn = function(msg){
 				// 3. Respond to open dialog.
 				if (msg.indexOf('Are you sure that you want to stop') >= 0) {
 					return room.user.say('mimiron', 'yes');
@@ -250,7 +250,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 			};
 
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'I want to stop container testContainer1', user: {id: 'mimiron'}}, response: room, reply: replyFn };
+			let res = { message: {text: 'I want to stop container testContainer1', user: {id: 'mimiron'}}, response: room, reply: replyFn };
 			room.robot.emit('bluemix.container.stop', res, { containername: 'testContainer1' });
 		});
 
@@ -261,7 +261,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'I want to stop container', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'I want to stop container', user: {id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.container.stop', res, {});
 		});
 	});
@@ -276,7 +276,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 
-			var res = { message: {text: 'I want help with containergroups'}, response: room };
+			let res = { message: {text: 'I want help with containergroups'}, response: room };
 			room.robot.emit('bluemix.containergroup.help', res, {});
 		});
 	});
@@ -295,7 +295,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				}
 			});
 
-			var res = { message: {text: 'I want to list my containergroups'}, user: {id: 'mimiron'}, response: room };
+			let res = { message: {text: 'I want to list my containergroups'}, user: {id: 'mimiron'}, response: room };
 			room.robot.emit('bluemix.containergroup.list', res, {});
 
 		});
@@ -316,7 +316,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 			});
 
 			// 2. Handle the dialog questions.
-			var replyFn = function(msg){
+			let replyFn = function(msg){
 				// 3. Sends a message to the room with the response to dialog requesting containergroup name.
 				if (msg === 'Are you sure that you want to remove container group *testContainerGroup1*?') {
 					room.user.say('mimiron', 'yes');
@@ -328,7 +328,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 			};
 
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'I want to remove containergroup testContainerGroup1', user: {id: 'mimiron'}}, response: room, reply: replyFn };
+			let res = { message: {text: 'I want to remove containergroup testContainerGroup1', user: {id: 'mimiron'}}, response: room, reply: replyFn };
 			room.robot.emit('bluemix.containergroup.remove', res, { containergroupname: 'testContainerGroup1' });
 		});
 
@@ -339,7 +339,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'I want to remove containergroup', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'I want to remove containergroup', user: {id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.containergroup.remove', res, {});
 		});
 	});
@@ -359,7 +359,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 			});
 
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'I want to scale containergroup testContainerGroup1 to 4 instances.', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'I want to scale containergroup testContainerGroup1 to 4 instances.', user: {id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.containergroup.scale', res, { containergroupname: 'testContainerGroup1', instances: '4' });
 
 		});
@@ -371,7 +371,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'I want to scale containergroup to 4 instances', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'I want to scale containergroup to 4 instances', user: {id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.containergroup.scale', res, { instances: '4' });
 		});
 
@@ -382,7 +382,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 				done();
 			});
 			// 1. Mock Natural Language message by calling emit.
-			var res = { message: {text: 'I want to scale containergroup testContainerGroup1', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: 'I want to scale containergroup testContainerGroup1', user: {id: 'mimiron'}}, response: room };
 			room.robot.emit('bluemix.containergroup.scale', res, { containergroupname: 'testContainerGroup1' });
 		});
 	});
@@ -391,7 +391,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 
 		it('should retrieve set of container names', function(done) {
 			const entities = require('../src/lib/container.entities');
-			var res = { message: {text: '', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: '', user: {id: 'mimiron'}}, response: room };
 			entities.getContainerNames(room.robot, res, 'containername', {}).then(function(containerNames) {
 				expect(containerNames.length).to.eql(3);
 				done();
@@ -402,7 +402,7 @@ describe('Interacting with Bluemix containers via natural language', function() 
 
 		it('should retrieve set of container group names', function(done) {
 			const entities = require('../src/lib/container.entities');
-			var res = { message: {text: '', user: {id: 'mimiron'}}, response: room };
+			let res = { message: {text: '', user: {id: 'mimiron'}}, response: room };
 			entities.getContainerGroupNames(room.robot, res, 'containergroupname', {}).then(function(containerGroupNames) {
 				expect(containerGroupNames.length).to.eql(1);
 				done();
