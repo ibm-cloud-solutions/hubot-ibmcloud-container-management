@@ -4,6 +4,7 @@
     "classes": [{
         "class": "bluemix.container.help",
         "description": "Help with Bluemix containers",
+        "confirmprompt": "Would you like help with Bluemix container management (yes or no)?",
         "emittarget": "bluemix.container.help",
         "texts": [
             "Help with containers.",
@@ -13,6 +14,7 @@
     }, {
         "class": "bluemix.container.list",
         "description" : "List Bluemix containers",
+        "confirmprompt": "Would you like to list the Bluemix containers (yes or no)?",
         "emittarget": "bluemix.container.list",
         "texts": [
             "Show my containers",
@@ -27,6 +29,7 @@
     }, {
         "class": "bluemix.container.logs",
         "description" : "Show logs for a Bluemix container",
+        "confirmprompt": "Would you like to see the logs for the ${containername} Bluemix container (yes or no)?",
         "emittarget": "bluemix.container.logs",
         "texts": [
             "logs",
@@ -44,6 +47,7 @@
     }, {
         "class": "bluemix.container.remove",
         "description" : "Remove a Bluemix container",
+        "confirmprompt": "Would you like to remove the ${containername} Bluemix container (yes or no)?",
         "emittarget": "bluemix.container.remove",
         "texts": [
             "Remove container",
@@ -59,6 +63,7 @@
     }, {
         "class": "bluemix.container.start",
         "description" : "Start a Bluemix container",
+        "confirmprompt": "Would you like to start the ${containername} Bluemix container (yes or no)?",
         "emittarget": "bluemix.container.start",
         "texts": [
             "Start container",
@@ -77,6 +82,7 @@
     }, {
         "class": "bluemix.container.status",
         "description" : "Show the status of a Bluemix container",
+        "confirmprompt": "Would you like to know the status of the ${containername} Bluemix container (yes or no)?",
         "emittarget": "bluemix.container.status",
         "texts": [
             "Status of container",
@@ -93,6 +99,7 @@
     }, {
         "class": "bluemix.container.stop",
         "description" : "Stop a Bluemix container",
+        "confirmprompt": "Would you like to stop the ${containername} Bluemix container (yes or no)?",
         "emittarget": "bluemix.container.stop",
         "texts": [
             "Stop the container",
@@ -112,6 +119,7 @@
     }, {
         "class": "bluemix.containergroup.help",
         "description" : "Help with Bluemix container group",
+        "confirmprompt": "Would you like help with Bluemix container group management (yes or no)?",
         "emittarget": "bluemix.containergroup.help",
         "texts": [
             "Help with containergroups.",
@@ -121,6 +129,7 @@
     }, {
         "class": "bluemix.containergroup.list",
         "description" : "List Bluemix container groups",
+        "confirmprompt": "Would you like to list the Bluemix container groups (yes or no)?",
         "emittarget": "bluemix.containergroup.list",
         "texts": [
             "Show me my containergroups.",
@@ -134,6 +143,7 @@
     }, {
         "class": "bluemix.containergroup.remove",
         "description" : "Remove a Bluemix container group",
+        "confirmprompt": "Would you like to remove the ${containergroupname} Bluemix container group (yes or no)?",
         "emittarget": "bluemix.containergroup.remove",
         "texts": [
             "Remove containergroup",
@@ -149,6 +159,7 @@
     }, {
         "class": "bluemix.containergroup.scale",
         "description" : "Scale a Bluemix container group",
+        "confirmprompt": "Would you like to scale the ${containergroupname} Bluemix container group to ${instances} instances (yes or no)?",
         "emittarget": "bluemix.containergroup.scale",
         "texts": [
             "Scale containergroup to have instances",
