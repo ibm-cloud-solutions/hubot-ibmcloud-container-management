@@ -87,7 +87,6 @@ module.exports = (robot) => {
 				});
 				activity.emitBotActivity(robot, res, { activity_id: 'activity.container.list', space_name: spaceName, space_guid: spaceGuid});
 			});
-			// });
 			nlcconfig.updateGlobalParameterValues('IBMcloudContainerManagment_containername', containerNames);
 		}).catch((reason) => {
 			robot.logger.error(`${TAG}: reason=${reason}`);
