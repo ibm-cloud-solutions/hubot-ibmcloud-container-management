@@ -1,9 +1,9 @@
 /*
-  * Licensed Materials - Property of IBM
-  * (C) Copyright IBM Corp. 2016. All Rights Reserved.
-  * US Government Users Restricted Rights - Use, duplication or
-  * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-  */
+* Licensed Materials - Property of IBM
+* (C) Copyright IBM Corp. 2016. All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+*/
 'use strict';
 
 module.exports = {
@@ -115,7 +115,7 @@ module.exports = {
 		}],
 		Name: 'testContainer1',
 		Status: 'Running',
-		Memory: 64,
+		Memory: '64',
 		NetworkSettings: {
 			IPAddress: '1.1.1.1'
 		}
@@ -128,7 +128,7 @@ module.exports = {
 		}],
 		Name: 'testContainer2',
 		Status: 'Running',
-		Memory: 256,
+		Memory: '256',
 		NetworkSettings: {
 			IPAddress: '2.2.2.2'
 		}
@@ -141,7 +141,7 @@ module.exports = {
 		}],
 		Name: 'testContainer3',
 		Status: 'Running',
-		Memory: 128,
+		Memory: '128',
 		NetworkSettings: {
 			IPAddress: '2.1.2.3'
 		}
@@ -189,5 +189,61 @@ module.exports = {
 	}],
 	openwhiskAction: {
 		activationId: '19012842023'
+	},
+	memDatapoints: [{
+		target: 'absolute(sumSeries(scale(testSpaceGuid.0000.1.memory.memory-used,1e-06)))',
+		datapoints: [
+			[
+				323.44064,
+				1474893420
+			],
+			[
+				323.44064,
+				1474893450
+			],
+			[
+				323.44064,
+				1474893450
+			],
+			[
+				323.44064,
+				1474893450
+			],
+			[
+				323.44064,
+				1474893450
+			],
+			[
+				323.44064,
+				1474893450
+			]
+		]
 	}
+],
+	cpuDatapoints: [
+		{
+			target: 'absolute(sumSeries(offset(testSpaceGuid.0000.1.cpu-0.cpu-idle,-100)))',
+			datapoints: [
+				[
+					0.18213099999999827,
+					1474895250
+				],
+				[
+					0.5615010000000069,
+					1474895280
+				],
+				[
+					0.5615010000000069,
+					1474895280
+				],
+				[
+					0.5615010000000069,
+					1474895280
+				],
+				[
+					0.5615010000000069,
+					1474895280
+				]
+			]
+		}]
 };
