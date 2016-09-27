@@ -12,11 +12,11 @@
 //	jamesjong
 //
 /*
-  * Licensed Materials - Property of IBM
-  * (C) Copyright IBM Corp. 2016. All Rights Reserved.
-  * US Government Users Restricted Rights - Use, duplication or
-  * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-  */
+* Licensed Materials - Property of IBM
+* (C) Copyright IBM Corp. 2016. All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+*/
 'use strict';
 
 const path = require('path');
@@ -86,59 +86,98 @@ module.exports = (robot) => {
 			ic.setCache(spaceGuid, resultJson);
 
 			// Iterate the containers and return info for match on name.
-			const attachments = resultJson.map((container) => {
+			let arrayPro = [];
+			resultJson.map((container) => {
 				if (container.Name.toLowerCase() === name.toLowerCase()){
 					let message = i18n.__('container.status.in.progress', name, spaceName);
 					robot.emit('ibmcloud.formatter', { response: res, message: message});
-					const ports = container.Ports.reduce((list, port) => {
-						if (list) {
-							list += '\n';
-						}
-						list += 'IP: ' + port.IP + ' , Port private: ' + port.PrivatePort + ' public: ' + port.PublicPort;
-						return list;
-					}, '');
-
-					const attachment = {
-						title: container.Name,
-						color: palette[container.Status.toLowerCase()] || palette.normal
-					};
-					attachment.fields = [
-						{title: 'status', value: container.Status.toLowerCase(), short: true},
-						{title: 'memory', value: container.Memory, short: true},
-						{title: 'IP address', value: container.NetworkSettings.IPAddress, short: true},
-						{title: 'ports', value: ports}
-					];
-					return attachment;
+					arrayPro.push(getContainerInfo(container, spaceGuid));
 				}
-			}).filter(function(attachment){
-				if (attachment != null){
+			});
+
+			Promise.all(arrayPro).then(attachments => {
+				console.log('return in');
+				if (attachments.length > 0) {
+					// Emit as an attachment
+					robot.emit('ibmcloud.formatter', {
+						response: res,
+						attachments
+					});
+
+					activity.emitBotActivity(robot, res, {
+						activity_id: 'activity.container.status',
+						space_name: spaceName,
+						space_guid: spaceGuid
+					});
+				}
+				else {
+					let message = i18n.__('container.name.not.found', name);
+					robot.emit('ibmcloud.formatter', { response: res, message: message});
+				}
+
+				if (attachments != null){
 					return true;
 				}
 				return false;
 			});
-
-			if (attachments.length > 0) {
-				// Emit as an attachment
-				robot.emit('ibmcloud.formatter', {
-					response: res,
-					attachments
-				});
-
-				activity.emitBotActivity(robot, res, {
-					activity_id: 'activity.container.status',
-					space_name: spaceName,
-					space_guid: spaceGuid
-				});
-			}
-			else {
-				let message = i18n.__('container.name.not.found', name);
-				robot.emit('ibmcloud.formatter', { response: res, message: message});
-			}
 		}).catch((reason) => {
 			robot.logger.error(`${TAG}: reason=${reason}`);
 			robot.logger.error(reason.dumpstack);
 			let message = i18n.__('container.name.not.found', name);
 			robot.emit('ibmcloud.formatter', { response: res, message: message});
 		});
+	};
+	function getContainerInfo(container, spaceGuid){
+		const ports = container.Ports.reduce((list, port) => {
+			if (list) {
+				list += '\n';
+			}
+			list += 'IP: ' + port.IP + ' , Port private: ' + port.PrivatePort + ' public: ' + port.PublicPort;
+			return list;
+		}, '');
+
+		const attachment = {
+			title: container.Name,
+			color: palette[container.Status.toLowerCase()] || palette.normal
+		};
+		attachment.fields = [
+			{title: 'status', value: container.Status.toLowerCase(), short: true},
+			{title: 'memory', value: container.Memory + 'M', short: true},
+			{title: 'IP address', value: container.NetworkSettings.IPAddress, short: true},
+			{title: 'ports', value: ports}
+		];
+		let cache = ic.getCache(spaceGuid);
+		let p = new Promise((resolve, reject) => {
+			ic.containers.memoryUsage(cache[container.Name], spaceGuid).then((result) => {
+				let resultJson = JSON.parse(result);
+				let data = resultJson[0].datapoints;
+				let sum = 0;
+				for (let i = 0; i < data.length; i++) {
+					if (parseFloat(data[i], 10)) {
+						sum = sum + parseFloat(data[i], 10);
+						i++;
+					}
+				}
+				let memUsage = Number(sum / 60).toFixed(2);
+				attachment.fields.push({title: 'memory usage', value: memUsage + 'M', short: true});
+				return attachment;
+			}).then((attachment) => {
+				ic.containers.cpuUsage(cache[container.Name], spaceGuid).then((result) => {
+					let resultJson = JSON.parse(result);
+					let data = resultJson[0].datapoints;
+					let sum = 0;
+					for (let i = 0; i < data.length; i++) {
+						if (parseFloat(data[i], 10)) {
+							sum = sum + parseFloat(data[i], 10);
+							i++;
+						}
+					}
+					let cpuUsage = Number(sum / 60).toFixed(2);
+					attachment.fields.push({title: 'cpu usage(%)', value: cpuUsage, short: true});
+					resolve(attachment);
+				});
+			});
+		});
+		return p;
 	};
 };

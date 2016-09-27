@@ -41,6 +41,7 @@ class Containers {
 	 */
 	constructor() {
 		this.endpoint = (env.endpoint || '').replace('/api', '/containers-api');
+		this.usageEndpoint = (env.endpoint || '').replace('/api', '/alchemyopsui');
 	}
 
 	/**
@@ -196,8 +197,74 @@ class Containers {
 		});
 		return promise;
 	}
-}
 
+	/**
+	 * CPU Usage of a container
+	 *
+	 * @param  {String} containerGuid     [Container guid]
+	 * @param {string} spaceGuid  [The space where the containers exist]
+	 * @return {JSON}              [information about the container]
+	 */
+	cpuUsage(containerGuid, spaceGuid) {
+		// GET
+		let duration = '.cpu-*.cpu-idle,-100)))&format=json&from=-60min&to=-0min/';
+		let alcEndPoint = this.usageEndpoint + '/graphiteData/target=absolute(sumSeries(offset(' + spaceGuid + '.0000.' + containerGuid + duration + spaceGuid + '/metric-cpu';
+		let options = {
+			method: 'GET',
+			url: alcEndPoint,
+			headers: {
+				Authorization: cf.token.access_token
+			}
+		};
+		// console.log('CPU URL GET ' + alcEndPoint);
+		let promise = new Promise((resolve, reject) => {
+			request(options, function(error, response, body) {
+				if (error) {
+					reject(body);
+				}
+				else {
+					resolve(body);
+				}
+			});
+		});
+		return promise;
+	}
+
+
+	/**
+	 * Memory Usage of a container
+	 *
+	 * @param  {String} containerGuid     [Container guid]
+	 * @param {string} spaceGuid  [The space where the containers exist]
+	 * @return {JSON}              [information about the container]
+	 */
+	memoryUsage(containerGuid, spaceGuid) {
+		// GET
+		let duration = '.memory.memory-used,0.000001)))&format=json&from=-60min&to=-0min/';
+		let alcEndPoint = this.usageEndpoint + '/graphiteData/target=absolute(sumSeries(scale(' + spaceGuid + '.0000.' + containerGuid + duration + spaceGuid + '/metric-memory';
+		let options = {
+			method: 'GET',
+			url: alcEndPoint,
+			headers: {
+				Authorization: cf.token.access_token
+			}
+		};
+		// console.log('MEM URL GET ' + alcEndPoint);
+		let promise = new Promise((resolve, reject) => {
+			// console.log('mem' + Date());
+			request(options, function(error, response, body) {
+				// console.log('mem2' + Date());
+				if (error) {
+					reject(body);
+				}
+				else {
+					resolve(body);
+				}
+			});
+		});
+		return promise;
+	}
+}
 
 /**
  * This public class manages the operations related with ContainerGroups in Bluemix

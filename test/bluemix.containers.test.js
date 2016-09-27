@@ -115,13 +115,21 @@ describe('Interacting with Bluemix containers via RegEx', function() {
 	context('user calls `container status` for an existing container', function() {
 		it('should send a slack event with container status', function(done) {
 			return room.user.say('mimiron', '@hubot container status testContainer1').then(() => {
-				expect(room.messages.length).to.eql(3);
-				let response = room.messages[1];
-				expect(response).to.eql(['hubot', '@mimiron ' + i18n.__('container.status.in.progress', 'testContainer1', 'testSpace')]);
-				let event = room.messages[2][1];
-				expect(event.attachments.length).to.eql(1);
-				expect(event.attachments[0].title).to.eql('testContainer1');
-				done();
+				return sprinkles.eventually({
+					timeout: timeout
+				}, function() {
+					if (room.messages.length < 4) {
+						throw new Error('too soon');
+					}
+				}).then(() => false).catch(() => true).then((success) => {
+					expect(room.messages.length).to.eql(3);
+					let response = room.messages[1];
+					expect(response).to.eql(['hubot', '@mimiron ' + i18n.__('container.status.in.progress', 'testContainer1', 'testSpace')]);
+					let event = room.messages[2][1];
+					expect(event.attachments.length).to.eql(1);
+					expect(event.attachments[0].title).to.eql('testContainer1');
+					done();
+				});
 			});
 		});
 	});
